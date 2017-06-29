@@ -24,9 +24,10 @@ object Consumer extends App {
             "org.apache.kafka.common.serialization.StringDeserializer")
 
   //disable auto commit
-  props.put("enable.auto.commit", "false")
-  // props.put("auto.commit.interval.ms", "1000")
-  // props.put("session.timeout.ms", "30000")
+  props.put("enable.auto.commit", "true")
+  props.put("auto.commit.interval.ms", "1000")
+  props.put("session.timeout.ms", "30000")
+
   //consumer group
   props.put("group.id", "ConsumerGroup1")
 
@@ -37,8 +38,10 @@ object Consumer extends App {
   while (true) {
     val records = consumer.poll(100)
     for (record <- records.asScala) {
-      println(record)
+      println("============== Record ===================="+ record)
     }
-    //consumer.commitSync()
+//    consumer.commitSync()
   }
+
+  consumer.close()
 }

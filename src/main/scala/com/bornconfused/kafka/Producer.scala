@@ -19,9 +19,10 @@ object Producer extends App {
 
   val TOPIC="test"
 
-  for(i<- 1 to 10){
+  for(i<- 1 to 100000){
     val record = new ProducerRecord(TOPIC, "key", s"hello $i")
-    producer.send(record)
+    val recordMetadata = producer.send(record).get()
+    println("============ metadata =================" + recordMetadata.offset())
   }
 
   val record = new ProducerRecord(TOPIC, "key", "the end "+new java.util.Date)

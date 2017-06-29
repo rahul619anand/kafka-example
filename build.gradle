@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    compile 'org.scala-lang:scala-library:2.11.8'
-    compile "com.typesafe.scala-logging:scala-logging_2.11:3.5.0"
+    compile 'org.scala-lang:scala-library:2.12.12'
+    compile "com.typesafe.scala-logging:scala-logging_2.12:3.5.0"
     compile "ch.qos.logback:logback-classic:1.1.7"
 
     compile "org.apache.kafka:kafka_${scalaMajorVersion}:${kafkaVersion}"
